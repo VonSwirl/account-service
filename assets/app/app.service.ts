@@ -12,8 +12,14 @@ import { AddressModel } from "./models/address.model";
 @Injectable()
 export class AppService {
     jwtHelper: JwtHelper = new JwtHelper();
+    //  RxJS Subject to allow the data to be multicasted to many Observers	
+    dataForSharing:Subject<any> = new Subject();
 
     constructor(private http: Http) {}
+    
+    shareData(data: string) {			
+       this.dataForSharing.next(data);
+    }
 
     register(user: UserModel) {                
         const body = JSON.stringify(user);
