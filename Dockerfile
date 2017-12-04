@@ -7,8 +7,7 @@ COPY package.json /
 COPY tsconfig.aot.json /
 COPY tsconfig.json /
 RUN npm install
-RUN npm run build:prod
 COPY . /
-CMD [ "npm", "start" ] 
+CMD npm run dev 
 # replace this with your application's default port
 EXPOSE 3004
