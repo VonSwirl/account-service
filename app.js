@@ -14,7 +14,8 @@ var staffRoutes = require('./routes/staff');
 var appConfig = require('./app-config.json');
 
 var app = express();
-mongoose.connect(appConfig.connectionString);
+mongoose.connect(appConfig.connectionString, { useMongoClient: true });
+mongoose.Promise = global.Promise;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
