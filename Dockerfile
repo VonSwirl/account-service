@@ -9,4 +9,3 @@ COPY . /
 CMD [ "npm", "start" ]
 # replace this with your application's default port
 EXPOSE 3004
-#
